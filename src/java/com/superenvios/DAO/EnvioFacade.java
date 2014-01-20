@@ -5,9 +5,13 @@
 package com.superenvios.DAO;
 
 import com.superenvios.model.Envio;
+import com.superenvios.model.STATE;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.annotation.security.PermitAll;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 
 /**
  *
@@ -27,8 +31,14 @@ public class EnvioFacade extends AbstractFacade<Envio> implements EnvioFacadeLoc
         super(Envio.class);
     }
     
+    @Override
+    @PermitAll
     public Long createEnvio(Envio envio){
-        super.create(envio);
+        getEntityManager().persist(envio);
+        //getEntityManager().refresh(e);
+        getEntityManager().flush();
+        //System.out.println("el id es "+envio.getId());
         return envio.getId();
     }
+
 }
