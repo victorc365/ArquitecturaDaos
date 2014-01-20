@@ -27,4 +27,8 @@ public class EnvioFacade extends AbstractFacade<Envio> implements EnvioFacadeLoc
         super(Envio.class);
     }
     
+    public Long createEnvio(Envio envio){
+        super.create(envio);
+        return envio.getId();
+    }
 }
