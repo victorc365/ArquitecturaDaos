@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-ejb-jar PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 EJB 3.1//EN" "http://glassfish.org/dtds/glassfish-ejb-jar_3_1-1.dtd">
+<glassfish-ejb-jar>
+  <enterprise-beans>
+    <ejb>
+      <ejb-name>EnvioFacade</ejb-name>
+      <jndi-name>EnvioFacade</jndi-name>
+    </ejb>
+    <ejb>
+      <ejb-name>MensajeroFacade</ejb-name>
+      <jndi-name>MensajeroFacade</jndi-name>
+    </ejb>
+    <ejb>
+      <ejb-name>PersonaFacade</ejb-name>
+      <jndi-name>PersonaFacade</jndi-name>
+    </ejb>
+    <ejb>
+      <ejb-name>RolFacade</ejb-name>
+      <jndi-name>RolFacade</jndi-name>
+    </ejb>
+  </enterprise-beans>
+</glassfish-ejb-jar>
