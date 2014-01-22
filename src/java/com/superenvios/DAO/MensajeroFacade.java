@@ -6,6 +6,7 @@ package com.superenvios.DAO;
 
 import com.superenvios.model.Mensajero;
 import java.util.List;
+import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -34,6 +35,14 @@ public class MensajeroFacade extends AbstractFacade<Mensajero> implements Mensaj
         Query q1=getEntityManager().createQuery("SELECT m FROM Mensajero m WHERE m.activo = :state");
         q1.setParameter("state", Boolean.TRUE);
         return q1.getResultList();
+    }
+    
+    @Override
+    @PermitAll
+    public Mensajero findMensajeroEnvio(Long id){
+        Query q1=getEntityManager().createQuery("SELECT m FROM Mensajero m LEFT JOIN FETCH m.envio WHERE m.id = :idx");
+        q1.setParameter("idx",id);
+        return (Mensajero) q1.getSingleResult();
     }
     
 }
